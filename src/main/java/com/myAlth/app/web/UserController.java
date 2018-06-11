@@ -22,15 +22,15 @@ public class UserController {
 
     @RequestMapping("/view")
     public String view() {
-        return "main/login";
+        return "/login";
     }
 
     @RequestMapping("/indexview")
     public String index() {
-        return "main/index";
+        return "/index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login(User model, HttpSession session) {
         User user = userDao.findByUsername(model.getUsername());
 
@@ -42,5 +42,5 @@ public class UserController {
             mav.setViewName("index");
             return mav;
         }
-    }
+    }    
 }

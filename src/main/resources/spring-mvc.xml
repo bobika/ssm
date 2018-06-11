@@ -12,14 +12,31 @@
 
     <!-- 注册MVC注解驱动 -->
     <mvc:annotation-driven />
-
-    <!-- 静态资源可访问的设置方式 -->
-    <mvc:default-servlet-handler />
-
+   	<mvc:annotation-driven>  
+            <mvc:message-converters register-defaults="true">  
+                <!-- 配置Fastjson支持 -->  
+                <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">  
+                    <property name="supportedMediaTypes">  
+                        <list>  
+                            <value>text/html;charset=UTF-8</value>  
+                            <value>application/json</value>  
+                        </list>  
+                    </property>  
+                    <property name="features">  
+                        <list>  
+                            <value>WriteMapNullValue</value>  
+                            <value>QuoteFieldNames</value>  
+                        </list>  
+                    </property>  
+                </bean>  
+            </mvc:message-converters>  
+  </mvc:annotation-driven> 
+   
     <!-- 配置视图解析器，可以显式设置，也可以不设置，不设置会依据SpringMVC的默认设置 -->
     <bean id="viewResolver"
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/" />
         <property name="suffix" value=".jsp" />
     </bean>
+
 </beans>
