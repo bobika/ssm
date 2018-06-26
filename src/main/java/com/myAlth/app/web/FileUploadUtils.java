@@ -24,6 +24,7 @@ public class FileUploadUtils {
         String rootPath = request.getSession().getServletContext().getRealPath("resource/uploads/");
         // 原始名称
         String originalFileName = file.getOriginalFilename();
+        System.out.println(originalFileName);
         // 新文件名
         String newFileName = "sliver" + res + originalFileName.substring(originalFileName.lastIndexOf("."));
         // 创建年月文件夹
@@ -45,4 +46,5 @@ public class FileUploadUtils {
         return  fileUrl;
     }
 }
+
     

@@ -53,16 +53,18 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title" id="myModalLabel">请选择输入数据</h4>
                         </div>
+                        <form action="./file/fileupload.do" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-                             <form action="./file/fileupload.do" method="post" enctype="multipart/form-data">
+                             
 							        <input type="file" name="file">
-							        <button type="submit" class="btn btn-primary">确认</button>
-							 </form>
+							        
+							 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-
+                        	<button type="submit" class="btn btn-primary">确认</button>
                         </div>
+                        </form>
                     </div>
                     <!-- /.modal-content -->
                 </div>

@@ -254,19 +254,23 @@
 									          <span aria-hidden="true">&times;</span>
 									        </button>
 									      </div>
+									      <form action="../../file/fileupload.do" method="post" enctype="multipart/form-data">
 									      <div class="modal-body">
 									        <label class="control-label">选择文件</label>
-												<input id="data_file" name="data_file" type="file" multiple class="file" data-show-upload="false" data-show-caption="true">
+												<input id="data_file" name="file" type="file" multiple class="file" data-show-upload="false" data-show-caption="true">
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-									        <button type="button" class="btn btn-primary" title="Your custom upload logic">保存</button>
+									        <button type="submit" class="btn btn-primary">上传</button>
+									        
 									      </div>
+									      </form>
 									    </div>
 									  </div>
 									</div>
 						            						           
 	                 				<button type="button" class="btn btn-primary">--></button>
+	                 				
 	                 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dataProcessingModal">数据处理</button>
 	                 				<!-- 模态框（Modal） -->
 						            <div class="modal fade" id="dataProcessingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -345,16 +349,7 @@
 	                         	</div>
 	                         </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                
-                            </div>
-                        </div>
+                   
                     </div>
                     <div class="tab-pane fade in active" id="ipsum" style="margin-top:20px">
                         <div class="panel panel-default">
@@ -362,21 +357,7 @@
                                
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                               
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                               
-                            </div>
-                        </div>
+                       
                     </div>
                     <div class="tab-pane fade in active" id="dolor" style="margin-top:20px">
                         <div class="panel panel-default">
@@ -386,11 +367,7 @@
                                
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                               
-                            </div>
-                        </div>
+                  
                     </div>
                 </div>
             </div>
@@ -404,12 +381,5 @@
         <script src="../../assets1/js/clearmin.min.js"></script>
         <script src="../../assets1/js/fileinput.min.js"></script>
         <script src="../../assets1/js/zh.js"></script>
-        <script>
-        $(document).on('ready', function() {
-            $("#input-b5").fileinput({showCaption: false, dropZoneEnabled: false,elErrorContainer: '#kartik-file-errors',
-                allowedFileExtensions: ["csv", "txt"]});
-        });
-        </script>
-
     </body>
 </html>
