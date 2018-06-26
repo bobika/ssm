@@ -12,8 +12,8 @@
 <title>Bootstrap可视化布局系统</title>
 
 <!-- Le styles -->
-<link href="css/bootstrap-combined.min.css" rel="stylesheet">
-<link href="css/layoutit.css" rel="stylesheet">
+<link href="assets/plugins/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet">
+<link href="assets/css/layoutit.css" rel="stylesheet">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -21,19 +21,27 @@
 	<![endif]-->
 
 	<!-- Fav and touch icons -->
-	<link rel="shortcut icon" href="img/favicon.png">
+	<link rel="shortcut icon" href="assets/images/favicon.png">
 	
-	<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/jquery-2.0.0.min.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<![endif]-->
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ui.js"></script>
-	<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
-<script type="text/javascript" src="js/jquery.htmlClean.js"></script>
-<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="ckeditor/config.js"></script>
-<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/jquery-ui.js"></script>
+	<script type="text/javascript" src="assets/plugins/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.htmlClean.js"></script>
+<script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="assets/ckeditor/config.js"></script>
+<script type="text/javascript" src="assets/js/scripts.js"></script>
+
+<!-- test中图标测试了ionicons，index中的图标为fonts-awesome，可整体使用font-awesome -->
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<!-- 引用font-awesome -->
+	<link rel="shortcut icon" href="favicon.ico">  
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
 </head>
 
 <body style="min-height: 660px; cursor: auto;" class="edit">
@@ -41,13 +49,13 @@
   <div class="navbar-inner">
     <div class="container-fluid">
       <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="brand" href="#"><img src="img/favicon.png"> 可视化布局<span class="label">BETA</span></a>
+      <a class="brand" href="#"><img src="assets/images/favicon.png"> 可视化布局<span class="label">BETA</span></a>
       <div class="nav-collapse collapse">
       	<ul class="nav" id="menu-layoutit">
           <li class="divider-vertical"></li>
           <li>
             <div class="btn-group" data-toggle="buttons-radio">
-              <button type="button" id="edit" class="btn btn-primary active"><i class="icon-edit icon-white"></i>编辑</button>
+              <button type="button" id="edit" class="btn btn-primary active"><ion-icon name="heart"></ion-icon>编辑</button>
               <button type="button" class="btn btn-primary" id="devpreview"><i class="icon-eye-close icon-white"></i>布局编辑</button>
               <button type="button" class="btn btn-primary" id="sourcepreview"><i class="icon-eye-open icon-white"></i>预览</button>
             </div>
@@ -57,8 +65,8 @@
               <button class="btn btn-primary" href="#clear" id="clear"><i class="icon-trash icon-white"></i>清空</button>
             </div>
             <div class="btn-group">
-								<button class="btn btn-primary" href="#undo" id="undo" ><i class="icon-arrow-left icon-white"></i>撤销</button>
-								<button class="btn btn-primary" href="#redo" id="redo" ><i class="icon-arrow-right icon-white"></i>重做</button>
+				<button class="btn btn-primary" href="#undo" id="undo" ><i class="icon-arrow-left icon-white"></i>撤销</button>
+				<button class="btn btn-primary" href="#redo" id="redo" ><i class="icon-arrow-right icon-white"></i>重做</button>
 			</div>
           </li>
         </ul>

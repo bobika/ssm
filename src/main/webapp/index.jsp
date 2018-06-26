@@ -4,7 +4,8 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Free Bootstrap Theme for Developers</title>
+	
+    <title>Welcome ALib</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +22,13 @@
     <link rel="stylesheet" href="assets/plugins/prism/prism.css">
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+   
+    <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      
     <![endif]-->
 </head> 
 
@@ -45,7 +49,7 @@
         <div class="container">            
             <h1 class="logo pull-left">
                 <a class="scrollto" href="#promo">
-                    <span class="logo-title">devAid</span>
+                    <span class="logo-title">COSMOPlat PAR</span>
                 </a>
             </h1><!--//logo-->              
             <nav id="main-nav" class="main-nav navbar-right" role="navigation">
@@ -59,12 +63,12 @@
                 </div><!--//navbar-header-->            
                 <div class="navbar-collapse collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#about">About</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#features">Features</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#docs">Docs</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#license">License</a></li>                        
-                        <li class="nav-item last"><a class="scrollto" href="#contact">Contact</a></li>
+                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">主页</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#about">简介</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#features">特点</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#docs">文档</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#license">版本</a></li>                        
+                        <li class="nav-item last"><a class="scrollto" href="#contact">联系我们</a></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
             </nav><!--//main-nav-->
@@ -74,39 +78,22 @@
     <!-- ******PROMO****** -->
     <section id="promo" class="promo section offset-header">
         <div class="container text-center">
-            <h2 class="title">dev<span class="highlight">Aid</span></h2>
-            <p class="intro">A free mobile-friendly Bootstrap theme designed to help developers
-promote their personal projects</p>
+            <h2 class="title">COSMOPlat<span class="highlight">PAR</span></h2>
+            <p class="intro">机器学习算法库，快速生成自己的机器学习模型</p>
             <div class="btns">
-                <a class="btn btn-cta-secondary" href="http://themes.3rdwavemedia.com/" target="_blank">Demo</a>
-                <a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">Download</a>
+                <a class="btn btn-cta-secondary" href="modeling.jsp" target="_blank">建模</a>
+                <a class="btn btn-cta-primary" href="alglibrary.jsp" target="_blank">算法库</a>
             </div>
             <ul class="meta list-inline">
-                <li><a href="https://github.com/xriley/devAid-Theme" target="_blank">View on GitHub</a></li>
-                <li><a href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">Full Documentation</a></li>
-                <li>Created by: <a href="http://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> at 3rd Wave Media</li>
+                
             </ul><!--//meta-->
         </div><!--//container-->
         <div class="social-media">
             <div class="social-media-inner container text-center">
-                <ul class="list-inline">
-                    <li class="twitter-follow"><a href="https://twitter.com/3rdwave_themes" class="twitter-follow-button" data-show-count="false">Follow @3rdwave_themes</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                    </li><!--//twitter-follow-->
-                    <li class="twitter-tweet">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="3rdwave_themes" data-hashtags="bootstrap">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                    </li><!--//twitter-tweet-->
-                    <li class="facebook-like">
-                         <div class="fb-like" data-href="http://themes.3rdwavemedia.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-                    </li><!--//facebook-like-->
-                    <!--// Generate github buttons: https://github.com/mdo/github-buttons -->
-                    <li class="github-star"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&repo=github-buttons&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
-                    <li class="github-fork"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&repo=github-buttons&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe></li>
-                    <!--//
-                    <li class="github-follow"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&type=follow&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe></li>
-                    -->
+                <ul class="list-inline">   
+                	<li><a href="https://github.com/bobika/ssm" target="_blank">Github</a></li>
+                	<li><a href="#">算法文档</a></li>
+                	<li>Created by: <a href="#" target="_blank">青岛大学智能制造研究小组</a> </li>
                 </ul>
             </div>
         </div>
@@ -115,7 +102,7 @@ promote their personal projects</p>
     <!-- ******ABOUT****** --> 
     <section id="about" class="about section">
         <div class="container">
-            <h2 class="title text-center">What is devAid?</h2>
+            <h2 class="title text-center">什么是PAR?</h2>
             <p class="intro text-center">Explain your project in detail. Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
             <div class="row">
                 <div class="item col-md-4 col-sm-6 col-xs-12">
@@ -346,13 +333,12 @@ promote their personal projects</p>
     </footer><!--//footer-->
      
     <!-- Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>   
+    <script type="text/javascript" src="assets/plugins/jquery.min.js"></script>   
     <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>   
     <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
     <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
     <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
     <script type="text/javascript" src="assets/js/main.js"></script>       
-    
 <div>欢迎，${user.username }</div>
 </body>
 </html> 
