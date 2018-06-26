@@ -9,9 +9,10 @@
         <link rel="stylesheet" type="text/css" href="../../assets1/css/material-design.css">
         <link rel="stylesheet" type="text/css" href="../../assets1/css/small-n-flat.css">
         <link rel="stylesheet" type="text/css" href="../../assets1/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../../assets1/css/fileinput.min.css">
         <title>Modeling</title>
     </head>
-    <body class="cm-no-transition cm-1-navbar">
+    <body class="cm-no-transition cm-2-navbar">
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
             <!-- logo class="cm-logo" -->
@@ -159,7 +160,7 @@
                 <div class="cm-flex">
                     <div class="cm-breadcrumb-container">
                         <ol class="breadcrumb">
-                            <li class="active"><a href="modeling.jsp">建模</a></li>
+                            <li class="active"><a href="../../modeling.jsp">建模</a></li>
                             <li><a href="#">模型库</a></li>
                             <li ><a href="#">算法文档</a></li>
                         </ol>
@@ -220,24 +221,176 @@
                 </div>
 
             </nav>
+             <nav class="cm-navbar cm-navbar-default cm-navbar-slideup">
+                <div class="cm-flex">
+                    <div class="nav-tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li><a href="#lorem" data-toggle="tab">新建模型</a></li>
+                            <li><a href="#ipsum" data-toggle="tab">已建模型</a></li>
+                            <li><a href="#dolor" data-toggle="tab">K-Means算法文档</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </header>
         <div id="global">
             <div class="container-fluid">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h>
-                        
-                        </h>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="lorem" style="margin-top:20px">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                            	<div style="margin-left:20px">
+	                 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dataInputModal">
+									  数据输入
+									</button>
+									 
+									<!-- Modal -->
+									<div class="modal fade" id="dataInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									  <div class="modal-dialog modal-lg" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="myModalLabel">数据输入</h5>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-body">
+									        <label class="control-label">选择文件</label>
+												<input id="data_file" name="data_file" type="file" multiple class="file" data-show-upload="false" data-show-caption="true">
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+									        <button type="button" class="btn btn-primary" title="Your custom upload logic">保存</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+						            						           
+	                 				<button type="button" class="btn btn-primary">--></button>
+	                 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dataProcessingModal">数据处理</button>
+	                 				<!-- 模态框（Modal） -->
+						            <div class="modal fade" id="dataProcessingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						                <div class="modal-dialog">
+						                    <div class="modal-content">
+						                        <div class="modal-header">
+						                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                            <h4 class="modal-title" id="myModalLabel">数据处理</h4>
+						                        </div>
+						                        <div class="modal-body">
+						                             <input id="excelFile" type="file"> 
+						                        </div>
+						                        <div class="modal-footer">
+						                        	<button type="submit" class="btn btn-primary" data-dismiss="modal">确认</button>
+						                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						                        </div>
+						                    </div>
+						                    <!-- /.modal-content -->
+						                </div>
+						                <!-- /.modal -->
+						            </div>
+	                 				<button type="button" class="btn btn-primary">--></button>
+	                 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#algmConfigurationModal">K-Means</button>
+	                 				<!-- 模态框（Modal） -->
+						            <div class="modal fade" id="algmConfigurationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						                <div class="modal-dialog">
+						                    <div class="modal-content">
+						                        <div class="modal-header">
+						                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                            <h4 class="modal-title" id="myModalLabel">算法配置</h4>
+						                        </div>
+						                        <div class="modal-body">
+						                             <form action="./file/fileupload.do" method="post" enctype="multipart/form-data">
+													        <input type="file" name="file">
+													        
+													 </form>
+						                        </div>
+						                        <div class="modal-footer">
+						                        	<button type="submit" class="btn btn-primary" data-dismiss="modal">确认</button>
+						                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						                        </div>
+						                    </div>
+						                    <!-- /.modal-content -->
+						                </div>
+						                <!-- /.modal -->
+						            </div>
+	                 				<button type="button" class="btn btn-primary">--></button>
+	                 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dataVisModal">数据可视化</button>
+	                 				<!-- 模态框（Modal） -->
+						            <div class="modal fade" id="dataVisModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						                <div class="modal-dialog">
+						                    <div class="modal-content">
+						                        <div class="modal-header">
+						                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                            <h4 class="modal-title" id="myModalLabel">可视化选项</h4>
+						                        </div>
+						                        <div class="modal-body">
+						                             <form action="./file/fileupload.do" method="post" enctype="multipart/form-data">
+													        <input type="file" name="file">
+													        
+													 </form>
+						                        </div>
+						                        <div class="modal-footer">
+						                        	<button type="submit" class="btn btn-primary" data-dismiss="modal">确认</button>
+						                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						                        </div>
+						                    </div>
+						                    <!-- /.modal-content -->
+						                </div>
+						                <!-- /.modal -->
+						                
+						                
+						            </div>
+						            <!-- example -->
+
+	                         	</div>
+	                         </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        
+                    <div class="tab-pane fade in active" id="ipsum" style="margin-top:20px">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                               
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                               
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                               
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        
+                    <div class="tab-pane fade in active" id="dolor" style="margin-top:20px">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                
+
+                               
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                               
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -249,5 +402,14 @@
         <script src="../../assets1/js/fastclick.min.js"></script>
         <script src="../../assets1/js/bootstrap.min.js"></script>
         <script src="../../assets1/js/clearmin.min.js"></script>
+        <script src="../../assets1/js/fileinput.min.js"></script>
+        <script src="../../assets1/js/zh.js"></script>
+        <script>
+        $(document).on('ready', function() {
+            $("#input-b5").fileinput({showCaption: false, dropZoneEnabled: false,elErrorContainer: '#kartik-file-errors',
+                allowedFileExtensions: ["csv", "txt"]});
+        });
+        </script>
+
     </body>
 </html>
