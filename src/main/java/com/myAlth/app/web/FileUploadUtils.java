@@ -2,26 +2,40 @@ package com.myAlth.app.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.alibaba.fastjson.JSONObject;
+import com.myAlth.app.domain.DataInputService;
 
 import javax.servlet.http.HttpServletRequest;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 @Controller
-@RequestMapping("/file")
+@RequestMapping("/modeling")
 public class FileUploadUtils {
-    @RequestMapping("/fileupload.do")
-    public @ResponseBody  String upload(MultipartFile file, HttpServletRequest request) throws IOException {
+    @SuppressWarnings("null")
+	@RequestMapping("/fileupload.do")
+    public @ResponseBody  ModelAndView upload(MultipartFile file, HttpServletRequest request) throws IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSS");
         String res = sdf.format(new Date());
 
         // uploads文件夹位置
         String rootPath = request.getSession().getServletContext().getRealPath("resource/uploads/");
+        System.out.println(rootPath);
         // 原始名称
         String originalFileName = file.getOriginalFilename();
         System.out.println(originalFileName);
@@ -30,9 +44,10 @@ public class FileUploadUtils {
         // 创建年月文件夹
         Calendar date = Calendar.getInstance();
         File dateDirs = new File(date.get(Calendar.YEAR) + File.separator + (date.get(Calendar.MONTH)+1));
-
+        
         // 新文件
         File newFile = new File(rootPath + File.separator + dateDirs + File.separator + newFileName);
+         
         // 判断目标文件所在目录是否存在
         if( !newFile.getParentFile().exists()) {
             // 如果目标文件所在的目录不存在，则创建父目录
@@ -41,9 +56,69 @@ public class FileUploadUtils {
         System.out.println(newFile);
         // 将内存中的数据写入磁盘
         file.transferTo(newFile);
-        // 完整的url
+        // 完整的url4
         String fileUrl = date.get(Calendar.YEAR) + "/" + (date.get(Calendar.MONTH)+1) + "/" + newFileName;
-        return  fileUrl;
+        String RealPathDir = request.getSession().getServletContext()  
+                .getRealPath("resource/uploads/"+fileUrl); 
+        System.out.println("***"+RealPathDir);
+        DataInputService array = new DataInputService();//创建DataInputService对象
+        List<JSONObject> jarray = new ArrayList<JSONObject>();
+        JSONObject jo = new JSONObject(); //创建JSONObject对象
+        int datanum = 0;
+        try {
+        	
+            File filename = new File(RealPathDir); //获取文件名称
+            //读取文件
+            InputStreamReader reader = new InputStreamReader(new FileInputStream(filename));
+            BufferedReader br = new BufferedReader(reader);
+            
+            String line="";
+            line = br.readLine(); //先读文件一行
+            String []str = line.split(" "); //str用于存放将line以“ ”分割的字符串数组
+        	int num = 0; //num用来计算文件中的数字条目个数
+            for(String s : str) { //遍历一行得到数字数目
+        		num ++;
+        	}
+            double []a = new double[num]; //a用来存放将数字字符串转为double
+            int length = 0;   
+            array.setFilename(originalFileName);  //array对象赋值 文件名称
+            array.setNumberNum(num); //所含有的数字个数
+            array.setPath(RealPathDir); //文件上传后路径
+            
+            while(line!=null) {
+            	JSONObject jo1 = new JSONObject(); //创建JSONObject对象
+            	str = line.split(" ");
+            	for(String s:str) {
+            		System.out.println(s);
+            		a[length++] = Double.parseDouble(s);
+            	}
+            	length = 0;
+                jo1.put("first", a[0]);
+                jo1.put("second", a[1]);
+                jo1.put("third", a[2]);
+                jo1.put("forth", a[3]);
+                jo1.put("fifth", a[4]);
+                System.out.println(jo1);
+                jarray.add(jo1);
+                System.out.println("****"+jarray);
+                datanum++;
+            	line = br.readLine();
+            	
+            }
+            array.setJarray(jarray);
+            array.setDataNum(datanum);
+            List <String> attribution = new ArrayList<String>();
+            for(int i=0; i<num; i++) {
+            	attribution.add(String.valueOf(i));
+            }
+            System.out.println(attribution);
+            array.setAttribution(attribution);
+            
+        }catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+        
+        return new ModelAndView("Algorithm/Cluster/K-Means","array", array);
     }
 }
 
