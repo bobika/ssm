@@ -161,7 +161,7 @@
                         <ol class="breadcrumb">
                             <li class="active"><a href="modeling.jsp">建模</a></li>
                             <li><a href="#">模型库</a></li>
-                            <li ><a href="#">算法文档</a></li>
+                            <li ><a href="document.jsp">算法文档</a></li>
                         </ol>
                     </div>
                     <form id="cm-search" action="index.html" method="get">

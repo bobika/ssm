@@ -11,13 +11,14 @@ public class DataInputService {
 	private int numberNum; //数组中数字的个数
 	private int dataNum;
 	private List<String> attribution;
+	private boolean worked=false;
 	public List<String> getAttribution() {
 		return attribution;
 	}
 	public void setAttribution(List<String> attribution) {
 		this.attribution = attribution;
 	}
-	public List<JSONObject> getJarray() {	
+	public List<JSONObject> getJarray() {
 		return jarray;
 	}
 	public void setJarray(List<JSONObject> jarray) {
@@ -47,7 +48,10 @@ public class DataInputService {
 	public void setDataNum(int dataNum) {
 		this.dataNum = dataNum;
 	}
-	public void dataInput() {
-		
+	public boolean isWorked() {
+		return worked;
+	}
+	public void setWorked(boolean worked) {
+		this.worked = worked;
 	}
 }

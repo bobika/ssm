@@ -4,6 +4,9 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="MachineLearningLibrary-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MachineLearningLibrary/MachineLearningLibrary">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="ssm"/>
         <property name="java-output-path" value="/ssm/target/classes"/>
     </wb-module>

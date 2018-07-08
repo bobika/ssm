@@ -1,67 +1,78 @@
 package com.myAlth.app.domain;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class KMeansService {
-	private DataProcessingService dps; //文件路径及数据
-	private List<String> dataAttribution; //存放用于聚类的参数列名
-	private int clusterNumber; //聚类数目
-	private int maxIter;  //最大迭代次数
-	private String centerCalculation; //中心计算
-	private String distanceCalculation;  //距离计算
-	private int threads; //线程数
-	private double exitThreshold; //退出阈值，范围0-1
-	public DataProcessingService getDis() {
-		return dps;
+import com.alibaba.fastjson.JSONObject;
+import com.myAlth.app.model.Algorithm;
+import com.penghaisoft.MachineLearningLibrary.clustering.KMeans;
+
+public class KMeansService extends Algorithm {
+	public KMeansService(String dataFile, List<Integer> dataAttribution, int clusterNumber, int maxIter,
+			int centerCalculation, int distanceCalculation, int threads, double exitThreshold) {
+		Map<String, Object> parameter = new HashMap<String, Object>();
+		parameter.put("clusterNumber", clusterNumber);
+		parameter.put("maxIter", maxIter);
+		parameter.put("centerCalculation", centerCalculation);
+		parameter.put("distanceCalculation", distanceCalculation);
+		parameter.put("threads", threads);
+		parameter.put("exitThreshold", exitThreshold);
+		this.setParameter(parameter);
+		this.setDataFile(dataFile);
+		this.setDataAttribution(dataAttribution);
+		this.setParameterNumber(6);
+
 	}
-	public void setDis(DataProcessingService dis) {
-		this.dps = dis;
+
+	@Override
+	public ArrayList<ArrayList<Object>> run() {
+		List<List<Object>> data = new ArrayList<List<Object>>();// 算法输入数据
+		ArrayList<ArrayList<Object>> result=new ArrayList<ArrayList<Object>>();
+		int clusterNumber = (int) this.getParameter().get("clusterNumber");
+		int maxIter = (int) this.getParameter().get("maxIter");
+		int centerCalculation = (int) this.getParameter().get("centerCalculation");
+		int distanceCalculation = (int) this.getParameter().get("distanceCalculation");
+		int threads = (int) this.getParameter().get("threads");
+		double exitThreshold = (double) this.getParameter().get("exitThreshold");
+		try {
+
+			File file = new File(this.getDataFile()); // 获取文件名称
+			// 读取文件
+			InputStreamReader reader = new InputStreamReader(new FileInputStream(file));
+			BufferedReader br = new BufferedReader(reader);
+
+			String line = "";
+			line = br.readLine(); // 先读文件一行
+			String[] str = line.split(","); // str用于存放将line以“ ”分割的字符串数组
+			while (line != null) {
+				ArrayList<Object> d = new ArrayList<Object>();
+				str = line.split(",");
+
+				for (int i = 0; i < this.getDataAttribution().size(); i++) {
+					d.add(Double.parseDouble(str[this.getDataAttribution().get(i)]));
+				}
+
+				data.add(d);
+				line = br.readLine();
+
+			}
+
+			// 发送数据到算法
+			KMeans kmeans = new KMeans();
+			result = kmeans.ClusteringbyKMeans(data, clusterNumber, maxIter,
+					centerCalculation, distanceCalculation, threads, exitThreshold);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
-	public List<String> getDataAttribution() {
-		return dataAttribution;
-	}
-	public void setDataAttribution(List<String> dataAttribution) {
-		this.dataAttribution = dataAttribution;
-	}
-	public int getClusterNumber() {
-		return clusterNumber;
-	}
-	public void setClusterNumber(int clusterNumber) {
-		this.clusterNumber = clusterNumber;
-	}
-	public int getMaxIter() {
-		return maxIter;
-	}
-	public void setMaxIter(int maxIter) {
-		this.maxIter = maxIter;
-	}
-	public String getCenterCalculation() {
-		return centerCalculation;
-	}
-	public void setCenterCalculation(String centerCalculation) {
-		this.centerCalculation = centerCalculation;
-	}
-	public String getDistanceCalculation() {
-		return distanceCalculation;
-	}
-	public void setDistanceCalculation(String distanceCalculation) {
-		this.distanceCalculation = distanceCalculation;
-	}
-	public int getThreads() {
-		return threads;
-	}
-	public void setThreads(int threads) {
-		this.threads = threads;
-	}
-	public double getExitThreshold() {
-		return exitThreshold;
-	}
-	public void setExitThreshold(double exitThreshold) {
-		this.exitThreshold = exitThreshold;
-	}
-	public void KMeans() {
-		
-		
-	}
-	
+
+
 }
