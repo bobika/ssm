@@ -15,6 +15,11 @@
     </properties>
 
     <dependencies>
+        	<dependency>
+            <groupId>com.penghaisoft</groupId>
+            <artifactId>MachineLearningLibrary</artifactId>
+            <version>0.0.1</version>
+        </dependency>
         <!-- Spring相关包 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -91,7 +96,12 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-
+		<dependency>
+			<groupId>javax.servlet</groupId>  
+    		<artifactId>servlet-api</artifactId>  
+  		  	<version>2.5</version>  
+    		<scope>provided</scope>
+		</dependency>
         <!-- 日志相关包 -->
         <dependency>
             <groupId>log4j</groupId>
@@ -144,6 +154,17 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        		<!-- excel操作 poi 包 -->
+		<dependency>  
+         <groupId>org.apache.poi</groupId>  
+         <artifactId>poi</artifactId>  
+         <version>3.10-FINAL</version>  
+		</dependency>  
+		<dependency>  
+         <groupId>org.apache.poi</groupId>  
+         <artifactId>poi-ooxml</artifactId>  
+         <version>3.10-FINAL</version>  
+		</dependency>  
         <!-- 文件上传相关包 -->
 	    <dependency>
 	      <groupId>commons-io</groupId>
@@ -170,8 +191,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
