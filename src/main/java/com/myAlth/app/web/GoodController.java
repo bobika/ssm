@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myAlth.app.dao.GoodDao;
-import com.myAlth.app.domain.Good;
-import com.myAlth.app.domain.User;
+import com.myAlth.app.model.Good;
+import com.myAlth.app.model.User;
 
 @Controller
 @RequestMapping(value = "/good")

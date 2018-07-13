@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myAlth.app.dao.ModelDao">
+	<resultMap type="com.myAlth.app.model.ModelBean" id="ModelBeanMap">
+		<result column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="type" property="type"/>
+		<result column="filepath" property="filepath"/>
+		<result column="scenarios" property="scenarios"/>
+	</resultMap>
+	<insert id="saveModel" parameterType="com.myAlth.app.model.ModelBean">
+		insert into model(id,name,type,filepath,scenarios) 
+         values
+        (#{id},#{name},#{type},#{filepath},#{scenarios})
+	</insert>
+    <select id="findModelByID" parameterType="string" resultType="com.myAlth.app.model.ModelBean">
+        SELECT * FROM model WHERE id=#{modelID}
+    </select>
+    <select id="findAllModel" resultType="com.myAlth.app.model.ModelBean">    
+         select * FROM model    
+       </select> 
+</mapper>

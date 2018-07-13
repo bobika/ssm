@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 定义数据源Bean -->
     <!-- Druid -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="url" value="jdbc:mysql://localhost:3306/myalth" />
         <property name="username" value="root" />
-        <property name="password" value="xuanyuan" />
+        <property name="password" value="123456" />
     </bean>
 
     <!-- 注册SqlSessionFactoryBean -->

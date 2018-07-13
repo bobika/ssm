@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
@@ -15,23 +16,35 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
-import com.myAlth.app.domain.DataInputService;
+import com.myAlth.app.dao.ModelDao;
+import com.myAlth.app.model.DataInputService;
 import com.myAlth.app.model.Message;
 import com.myAlth.app.model.Model;
+import com.myAlth.app.model.ModelBean;
 import com.penghaisoft.MachineLearningLibrary.clustering.KMeans;
 
 @Controller
 @RequestMapping("/modeling")
 public class SaveModel {
+	@Resource
+	private ModelDao modelDao;
+
+	
 	@SuppressWarnings("null")
 	@RequestMapping("/SaveModel.do")
     public @ResponseBody  ModelAndView Calculate(Message msg,HttpServletResponse response, HttpServletRequest request) throws IOException {
@@ -64,8 +77,10 @@ public class SaveModel {
 		
 		Model model=new Model();
 		model.setModelID(res);
-		model.setModelName(dataSetName+"model");
-		model.setDataSetName(dataSetName);
+		model.setModelName(dataSetName.substring(0, dataSetName.lastIndexOf("."))+"_"+"model");
+		model.setModelType("Cluster");
+		model.setModelField("ð°Î²»¨·ÖÀà");
+		model.setDataSetName(dataSetName.substring(0, dataSetName.lastIndexOf(".")));
 		model.setParameter(parameter);
 		model.setParameterNumber(parameterNumber);
 		model.setInputpath(inputpath);
@@ -78,10 +93,26 @@ public class SaveModel {
 		File outFile = new File(model.getSavepath());  
         PrintStream ps = new PrintStream(new FileOutputStream(outFile)); 
         
+        ModelBean modelBean=new ModelBean();
+        modelBean.setId(model.getModelID());
+        modelBean.setName(model.getModelName());
+        modelBean.setType(model.getModelType());
+        modelBean.setFilepath(model.getSavepath());
+        modelBean.setScenarios(model.getModelField());
+        
+        
+        
+        modelDao.saveModel(modelBean);
+        
+        
         ps.append(modelStr);
 	    ps.close();
 	    System.out.println(model.getSavepath());
-	     return new ModelAndView("Algorithm/Cluster/K-Means","array", null);
+	    Message message=new Message();
+	    message.setModel(model);
+	     return new ModelAndView("Algorithm/Cluster/K-Means","message", message);
 		
 	}
+	
+	
 }

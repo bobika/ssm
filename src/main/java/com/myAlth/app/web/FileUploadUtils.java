@@ -8,9 +8,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
-import com.myAlth.app.domain.DataInputService;
+import com.myAlth.app.dao.ModelDao;
+import com.myAlth.app.model.DataInputService;
 import com.myAlth.app.model.Message;
+import com.myAlth.app.model.ModelBean;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import java.io.BufferedReader;
@@ -28,9 +31,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/modeling")
 public class FileUploadUtils {
+	
+	
     @SuppressWarnings("null")
 	@RequestMapping("/fileupload.do")
     public @ResponseBody  ModelAndView upload(MultipartFile file, HttpServletRequest request) throws IOException {
+    	
+    		
     	Message message=new Message();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSS");
         String res = sdf.format(new Date());

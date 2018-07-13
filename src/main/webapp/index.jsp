@@ -81,7 +81,7 @@
             <h2 class="title">COSMOPlat<span class="highlight">PAR</span></h2>
             <p class="intro">机器学习算法库，快速生成自己的机器学习模型</p>
             <div class="btns">
-                <a class="btn btn-cta-secondary" href="modeling.jsp" target="_blank">建模</a>
+                <a class="btn btn-cta-secondary" href="modeling1.jsp" target="_blank">建模</a>
                 <a class="btn btn-cta-primary" href="alglibrary.jsp" target="_blank">算法库</a>
             </div>
             <ul class="meta list-inline">

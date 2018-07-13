@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myAlth.app.dao.UserDao;
-import com.myAlth.app.domain.User;
+import com.myAlth.app.model.User;
 
 /**
  * ÓÃ»§¿ØÖÆÆ÷

@@ -5,6 +5,6 @@
 <configuration>
     <!-- 设置别名 -->
     <typeAliases>
-        <package name="com.myAlth.app.domain" />
+        <package name="com.myAlth.app.model" />
     </typeAliases>
 </configuration>

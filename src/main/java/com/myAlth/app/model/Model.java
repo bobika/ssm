@@ -9,6 +9,7 @@ public class Model {
 	private String modelID;
 	private String modelName;
 	private String dataSetName;
+	private String modelType;
 	private String modelField;
 	private String modelDistribution;
 	private Map<String, Object> parameter;
@@ -96,6 +97,12 @@ public class Model {
 	}
 	public void setAttributionNumber(int attributionNumber) {
 		this.attributionNumber = attributionNumber;
+	}
+	public String getModelType() {
+		return modelType;
+	}
+	public void setModelType(String modelType) {
+		this.modelType = modelType;
 	}
 
 	
